@@ -1,0 +1,29 @@
+.tvShow {
+	margin: 5px;
+}
+
+#buttonsView {
+	width: 100%;
+}
+
+#gifsView {
+	width: 80%;
+	display: inline-block;
+	float: left;
+}
+
+#show-form {
+	width: 20%;
+	display: inline-block;
+	float: right;
+}
+
+.gifZone {
+	margin: 5px;
+	display: inline-block;
+}
+
+#show-input {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
