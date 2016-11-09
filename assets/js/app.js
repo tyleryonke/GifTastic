@@ -1,10 +1,12 @@
 // Initial array of TV shows
 	var tvShows = ['Atlanta', 'Always Sunny', '30 Rock', 'Veep', 'Silicon Valley', 'Parks and Recreation', 'Curb Your Enthusiasm'];
 
-	// ========================================================
+	// function for generating gifs
 
 	function renderShowGifs(){
 		
+		// required information for API call
+
         var clickedShow = $(this).data('name');
         var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + clickedShow + "&api_key=dc6zaTOxFJmzC&limit=10";
 
@@ -14,9 +16,15 @@
             })
             .done(function(response) {
 
+            	//store response in a variable
+
                 var results = response.data;
 
+                //delete any previously generated gifs
+
                 $('#gifsView').empty();
+
+                //generate 10 gifs
 
                 for (var i = 0; i < results.length; i++) {
 
@@ -29,6 +37,8 @@
                     var showImage = $("<img data-state='still'>");
 
                     showImage.addClass('showGif');
+
+                    //set paused and active states for each gif
 
                     showImage.data('still', results[i].images.fixed_height_still.url);
 
@@ -43,6 +53,8 @@
                     $('#gifsView').prepend(showDiv);
 
                 }
+
+                //function to alternate between paused and active states of clicked gif
 
                 $('.showGif').on('click', function(){
 
