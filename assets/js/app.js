@@ -103,12 +103,18 @@
 		// Grab the input from the textbox
 		var show = $('#show-input').val().trim();
 
+		if (show == "") {
+      		  return false;
+    	};
+
 		// Add movie from the textbox to array
 		tvShows.push(show);
 		
 		// Run button generating function
 		renderButtons();
-		return false;
+		$('#show-input').val('');
+
+		return false;		
 	})
 
 
